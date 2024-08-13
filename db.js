@@ -1,7 +1,10 @@
 const mongoose = require("mongoose")
 const argon2 = require("argon2")
+const dotenv = require("dotenv")
 
-mongoose.connect("mongodb+srv://root:j4XEhIdLlveIYxXD@cluster0.ekkkv5i.mongodb.net/paytm")
+dotenv.config()
+
+mongoose.connect(`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.ekkkv5i.mongodb.net/paytm`)
 
 const userSchema = mongoose.Schema({
     username: {
